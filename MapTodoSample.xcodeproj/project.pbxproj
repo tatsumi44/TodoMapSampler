@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		98AC7DD87C3D4A5124F8BB17 /* Pods_MapTodoSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DE5E566F93882B16547C4E /* Pods_MapTodoSample.framework */; };
+		B904316F20D9FE79007E1D93 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B904316E20D9FE79007E1D93 /* ResultViewController.swift */; };
 		B940B05920D8E11900E171CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B940B05820D8E11900E171CB /* AppDelegate.swift */; };
 		B940B05B20D8E11900E171CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B940B05A20D8E11900E171CB /* ViewController.swift */; };
 		B940B05E20D8E11900E171CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B940B05C20D8E11900E171CB /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		38DE10A08074021ABD644C6E /* Pods-MapTodoSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapTodoSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapTodoSample/Pods-MapTodoSample.debug.xcconfig"; sourceTree = "<group>"; };
+		B904316E20D9FE79007E1D93 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		B940B05520D8E11900E171CB /* MapTodoSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapTodoSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B940B05820D8E11900E171CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B940B05A20D8E11900E171CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				B940B05820D8E11900E171CB /* AppDelegate.swift */,
 				B940B05A20D8E11900E171CB /* ViewController.swift */,
 				B940B06A20D8E23D00E171CB /* MapViewController.swift */,
+				B904316E20D9FE79007E1D93 /* ResultViewController.swift */,
 				B940B05C20D8E11900E171CB /* Main.storyboard */,
 				B940B05F20D8E11C00E171CB /* Assets.xcassets */,
 				B940B06120D8E11C00E171CB /* LaunchScreen.storyboard */,
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B904316F20D9FE79007E1D93 /* ResultViewController.swift in Sources */,
 				B940B05B20D8E11900E171CB /* ViewController.swift in Sources */,
 				B940B06B20D8E23D00E171CB /* MapViewController.swift in Sources */,
 				B940B05920D8E11900E171CB /* AppDelegate.swift in Sources */,

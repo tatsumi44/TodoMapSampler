@@ -22,10 +22,6 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     var longNum: Float!
     var latNum: Float!
     var flag: Bool = false
-    let storage = UserDefaults.standard
-//    var locationArray = [Float]()
-//    var nameContainLocationArray = [String(),[Float]()] as [Any]
-//    var mainLocationArray = [[String(),[Float]()]] as [[Any]]
     var num : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +81,6 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
                 //中心座標と表示範囲をマップに登録する。
                 let region = MKCoordinateRegionMake(center, span)
                 myMap.setRegion(region, animated:true)
-                myMap.setRegion(region,animated:true)
                 latNum = Float(location.coordinate.latitude)
                 longNum = Float(location.coordinate.longitude)
 //                locationArray = [latNum,longNum]

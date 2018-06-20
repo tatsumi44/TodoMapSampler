@@ -46,11 +46,51 @@
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="uh3-3R-qeo" id="XMo-5p-Qvd"/>
+                        <segue destination="pMd-Oy-DJE" kind="show" identifier="Next" id="BbA-QA-zTM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863.20000000000005" y="132.68365817091455"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="3H9-2S-kRb">
+            <objects>
+                <viewController id="pMd-Oy-DJE" customClass="ResultViewController" customModule="MapTodoSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="74f-EM-CB9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-V7-S0c">
+                                <rect key="frame" x="0.0" y="150" width="375" height="517"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJe-3W-zvZ">
+                                <rect key="frame" x="100" y="83" width="175" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dwb-GB-Frw" firstAttribute="trailing" secondItem="XJe-3W-zvZ" secondAttribute="trailing" constant="100" id="92j-jE-TcM"/>
+                            <constraint firstItem="rx3-V7-S0c" firstAttribute="leading" secondItem="dwb-GB-Frw" secondAttribute="leading" id="IHK-ur-bG5"/>
+                            <constraint firstItem="rx3-V7-S0c" firstAttribute="top" secondItem="XJe-3W-zvZ" secondAttribute="bottom" constant="30" id="SMi-dV-dS5"/>
+                            <constraint firstItem="rx3-V7-S0c" firstAttribute="bottom" secondItem="dwb-GB-Frw" secondAttribute="bottom" id="jAB-Kg-9fb"/>
+                            <constraint firstItem="XJe-3W-zvZ" firstAttribute="leading" secondItem="dwb-GB-Frw" secondAttribute="leading" constant="100" id="szh-Fd-ieQ"/>
+                            <constraint firstItem="rx3-V7-S0c" firstAttribute="trailing" secondItem="dwb-GB-Frw" secondAttribute="trailing" id="vxH-UA-oL2"/>
+                            <constraint firstItem="XJe-3W-zvZ" firstAttribute="top" secondItem="dwb-GB-Frw" secondAttribute="top" constant="19" id="zdd-0N-sRY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dwb-GB-Frw"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainMap" destination="rx3-V7-S0c" id="Njo-RJ-IGf"/>
+                        <outlet property="nameLabel" destination="XJe-3W-zvZ" id="5dB-wP-8Ra"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EIM-ud-US7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="1072"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="t8f-uQ-HNe">

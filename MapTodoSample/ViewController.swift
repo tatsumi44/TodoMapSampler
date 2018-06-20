@@ -12,12 +12,17 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     @IBOutlet weak var table: UITableView!
     let realm = try! Realm()
+    var num: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        table.reloadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -32,6 +37,20 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let name = contents[indexPath.row].name
         cell.textLabel?.text = name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        num = indexPath.row
+        performSegue(withIdentifier: "Next", sender: nil)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Next"{
+            let resulutViewController = segue.destination as! ResultViewController
+            resulutViewController.num = self.num
+        }
+        
     }
     
 
