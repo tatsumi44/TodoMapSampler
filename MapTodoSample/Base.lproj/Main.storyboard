@@ -38,6 +38,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="udi-2I-H0A">
+                        <barButtonItem key="leftBarButtonItem" title="通知" id="Fq7-iD-ade">
+                            <connections>
+                                <action selector="notification:" destination="BYZ-38-t0r" id="Tl0-sf-KBR"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wkK-VQ-kEu">
                             <connections>
                                 <segue destination="Q1j-m3-38c" kind="show" id="bQF-hl-9Gs"/>

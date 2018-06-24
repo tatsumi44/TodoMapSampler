@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import UserNotifications
+import MapKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,6 +16,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        if #available(iOS 10.0, *) {
+            // iOS 10
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
+                if error != nil {
+                    return
+                }
+                
+                if granted {
+                    debugPrint("通知許可")
+                } else {
+                    debugPrint("通知拒否")
+                }
+            })
+            
+        } else {
+            // iOS 9
+            let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+        }
+//        let center = UNUserNotificationCenter.current()
+//        center.delegate = self as! UNUserNotificationCenterDelegate
+        let content = UNMutableNotificationContent()
+        content.title = "Title"
+        content.subtitle = "Subtitle" // 新登場！
+        content.body = "Body"
+        content.sound = UNNotificationSound.default()
+        
+        
+        
+        // 5秒後に発火
+        let trigger: UNNotificationTrigger
+        let coordinate = CLLocationCoordinate2DMake(35.6972484989424, 139.439033372458)
+        let region = CLCircularRegion(center: coordinate, radius: 1000.0, identifier: "description")
+        trigger = UNLocationNotificationTrigger(region: region, repeats: false)
+        let request = UNNotificationRequest(identifier: "normal",
+                                            content: content,
+                                            trigger: trigger)
+        // ローカル通知予約
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         // Override point for customization after application launch.
         return true
     }

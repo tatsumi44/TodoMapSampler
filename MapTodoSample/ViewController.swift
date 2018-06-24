@@ -8,15 +8,19 @@
 
 import UIKit
 import RealmSwift
-class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+import UserNotifications
+import MapKit
+class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MKMapViewDelegate,CLLocationManagerDelegate {
 
     @IBOutlet weak var table: UITableView!
+    var locationManager = CLLocationManager()
     let realm = try! Realm()
     var num: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
+        locationManager.delegate = self
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -52,6 +56,31 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         }
         
     }
+    
+    @IBAction func notification(_ sender: UIBarButtonItem) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound], completionHandler: { result, error in
+           
+        })
+        let content = UNMutableNotificationContent()
+        content.title = "たいとる"
+        content.subtitle = "さぶたいとる"
+        content.body = "ほんぶん"
+        content.badge = NSNumber(value: 1)
+        content.sound = UNNotificationSound.default()
+        let trigger: UNNotificationTrigger
+        let coordinate = CLLocationCoordinate2DMake(35.6972484989424, 139.439033372458)
+        let region = CLCircularRegion(center: coordinate, radius: 1000.0, identifier: "description")
+        trigger = UNLocationNotificationTrigger(region: region, repeats: false)
+        let request = UNNotificationRequest(identifier: "normal",
+                                            content: content,
+                                            trigger: trigger)
+        // ローカル通知予約
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//        let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+//        let center = UNUserNotificationCenter.current()
+      
+    }
+    
     
 
     override func didReceiveMemoryWarning() {
