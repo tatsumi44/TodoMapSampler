@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 5秒後に発火
         let trigger: UNNotificationTrigger
         let coordinate = CLLocationCoordinate2DMake(35.6972484989424, 139.439033372458)
-        let region = CLCircularRegion(center: coordinate, radius: 1000.0, identifier: "description")
+        let region = CLCircularRegion(center: coordinate, radius: 10000.0, identifier: "description")
         trigger = UNLocationNotificationTrigger(region: region, repeats: false)
         let request = UNNotificationRequest(identifier: "normal",
                                             content: content,
